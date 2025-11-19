@@ -241,7 +241,7 @@
                     <div id="v1-content-4" class="v1-content hidden rounded-lg bg-[#44475A] p-6 shadow-xl shadow-[#191a21]">
                         <h3 class="mb-3 text-xl font-semibold text-[#FF79C6]">Layer 4: Network-Wide Pattern Recognition</h3>
                         <p class="mb-4 font-medium text-[#FF5555]">The Killshot: 𝕏 doesn't just analyze you. It analyzes the behavior of everyone your accounts interact with.</p>
-                        <p class="mb-4 text-[#F8F8F2]">Their network analysis saw: "Wait, these 400 user accounts (my customers) are all connected to these 83 developer tokens... and they're all DM'ing the same 50,000 people... in the same niches... with similar timing."</p>
+                        <p class="mb-4 text-[#F8F8F2]">Their network analysis saw: "Wait, these 400 user accounts (my customers) are all connected to these 83 developer tokens... and they're all DM’ing the same 50,000 people... in the same niches... with similar timing."</p>
                         <p class="mt-4 font-bold text-[#F8F8F2]">Game over.</p>
                         <p class="mt-2 text-[#F8F8F2]">They didn't see one bad actor; they saw a "large-scale coordinated inauthentic behavior" network. They banned me, my 83 dev accounts, and 30+ of my customers who got caught in the blast radius.</p>
                     </div>
@@ -387,6 +387,11 @@
                 <h3 class="mb-3 text-3xl font-bold text-[#FF79C6]">The Catch: Scarcity and Pricing</h3>
                 <div class="grid grid-cols-1 gap-6 md:grid-cols-2">
                     <div>
+                        <!-- DYNAMIC COUNTER -->
+                        <div class="mb-4 rounded-lg bg-[#FF5555] p-3 text-center text-xl font-extrabold text-[#282A36] shadow-inner shadow-[#00000050]">
+                            <span id="licenses-remaining">92</span> / 100 LICENSES REMAINING!
+                        </div>
+                        <!-- END DYNAMIC COUNTER -->
                         <p class="mb-4 text-lg text-[#F8F8F2]"><strong class="text-[#50FA7B]">Only 100 Licenses Available. Closed Forever After.</strong></p>
                         <ul class="list-disc pl-5 space-y-2 text-[#F8F8F2] text-sm">
                             <li>**Current Price:** <span class="text-xl font-bold text-[#FF79C6]">$997 One-Time</span> (Early Access).</li>
@@ -422,6 +427,29 @@
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             
+            // --- SCARCITY COUNTER LOGIC ---
+            const initialRemaining = 92; // Starting number of licenses remaining
+            const minimumRemaining = 8;  // Never go below this number to maintain availability
+            const counterElement = document.getElementById('licenses-remaining');
+            let currentRemaining = initialRemaining;
+
+            const updateCounter = () => {
+                if (currentRemaining > minimumRemaining) {
+                    currentRemaining = Math.max(minimumRemaining, currentRemaining - 1);
+                    counterElement.textContent = currentRemaining;
+                    
+                    // Randomize the next timer interval (simulates sales randomly)
+                    const nextInterval = Math.floor(Math.random() * 8000) + 5000; // 5 to 13 seconds
+                    setTimeout(updateCounter, nextInterval);
+                }
+            };
+            
+            if (counterElement) {
+                // Start the counter logic after a small delay
+                setTimeout(updateCounter, 2000); 
+            }
+            // --- END SCARCITY COUNTER LOGIC ---
+
             const initTabs = (tabBtnClass, contentClassPrefix) => {
                 const tabButtons = document.querySelectorAll(tabBtnClass);
                 const contentPanes = document.querySelectorAll(`.${contentClassPrefix}-content`);
