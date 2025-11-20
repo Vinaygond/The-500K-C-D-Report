@@ -1,0 +1,302 @@
+<!-- Chosen Palette: Dracula Theme (#282A36 background, #F8F8F2 foreground, with #50FA7B Green, #FF79C6 Pink, #8BE9FD Cyan accents) -->
+<!-- Application Structure Plan: Ultra-technical founder profile. Mimics a system post-mortem or engineering documentation. Focuses on low-level network protocols, statistical modeling, and distributed consensus. -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vinay Gond | Systems Architect</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Inter:wght@400;500;600;800&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'monospace'],
+                    },
+                    colors: {
+                        bg: '#282A36',
+                        surface: '#44475A',
+                        fg: '#F8F8F2',
+                        comment: '#6272A4',
+                        cyan: '#8BE9FD',
+                        green: '#50FA7B',
+                        orange: '#FFB86C',
+                        pink: '#FF79C6',
+                        purple: '#BD93F9',
+                        red: '#FF5555',
+                        yellow: '#F1FA8C'
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            background-color: #282A36;
+            color: #F8F8F2;
+            overflow-x: hidden;
+        }
+        .terminal-window {
+            background-color: #1E1F29;
+            border: 1px solid #44475A;
+            border-radius: 8px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+        .code-line {
+            display: block;
+            font-family: 'JetBrains Mono', monospace;
+            line-height: 1.6;
+        }
+        .line-num {
+            color: #6272A4;
+            margin-right: 1rem;
+            user-select: none;
+        }
+        /* Glitch effect for name */
+        .glitch {
+            position: relative;
+        }
+        .glitch::before, .glitch::after {
+            content: attr(data-text);
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #282A36;
+        }
+        .glitch::before {
+            left: 2px;
+            text-shadow: -1px 0 #FF5555;
+            clip: rect(24px, 550px, 90px, 0);
+            animation: glitch-anim-2 3s infinite linear alternate-reverse;
+        }
+        .glitch::after {
+            left: -2px;
+            text-shadow: -1px 0 #8BE9FD;
+            clip: rect(85px, 550px, 140px, 0);
+            animation: glitch-anim 2.5s infinite linear alternate-reverse;
+        }
+        @keyframes glitch-anim {
+            0% { clip: rect(14px, 9999px, 127px, 0); }
+            20% { clip: rect(59px, 9999px, 19px, 0); }
+            40% { clip: rect(36px, 9999px, 95px, 0); }
+            60% { clip: rect(78px, 9999px, 142px, 0); }
+            80% { clip: rect(11px, 9999px, 66px, 0); }
+            100% { clip: rect(94px, 9999px, 38px, 0); }
+        }
+        @keyframes glitch-anim-2 {
+            0% { clip: rect(125px, 9999px, 16px, 0); }
+            20% { clip: rect(4px, 9999px, 158px, 0); }
+            40% { clip: rect(25px, 9999px, 33px, 0); }
+            60% { clip: rect(109px, 9999px, 75px, 0); }
+            80% { clip: rect(81px, 9999px, 24px, 0); }
+            100% { clip: rect(118px, 9999px, 135px, 0); }
+        }
+
+        .tech-grid {
+            background-image: linear-gradient(#44475A 1px, transparent 1px),
+            linear-gradient(90deg, #44475A 1px, transparent 1px);
+            background-size: 20px 20px;
+            background-position: center center;
+            opacity: 0.1;
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col">
+
+    <!-- NAV -->
+    <header class="w-full border-b border-comment/30 bg-bg/90 backdrop-blur-sm sticky top-0 z-50">
+        <nav class="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
+            <a href="/" class="font-mono text-pink font-bold text-lg hover:text-white transition-colors">~/x_lead_scraper</a>
+            <div class="flex space-x-6 text-sm font-mono">
+                <a href="#engineering" class="text-comment hover:text-cyan transition-colors">./engineering</a>
+                <a href="#stack" class="text-comment hover:text-green transition-colors">./stack</a>
+                <a href="mailto:thevclass@outlook.com" class="text-comment hover:text-orange transition-colors">./contact</a>
+            </div>
+        </nav>
+    </header>
+
+    <main class="flex-grow relative">
+        <div class="absolute inset-0 tech-grid z-0 pointer-events-none"></div>
+        
+        <!-- HERO -->
+        <section class="py-24 px-6 relative z-10">
+            <div class="max-w-5xl mx-auto">
+                <div class="font-mono text-green mb-4 text-sm flex items-center gap-2">
+                    <span class="w-2 h-2 rounded-full bg-green animate-pulse"></span>
+                    System Status: OPERATIONAL (V2)
+                </div>
+                <h1 class="text-5xl md:text-7xl font-bold mb-6 leading-tight glitch" data-text="Vinay Gond">
+                    Vinay Gond
+                </h1>
+                <h2 class="text-2xl md:text-3xl text-comment font-light mb-8 font-mono">
+                    Distributed Systems Architect & <span class="text-purple">Adversarial Engineer</span>
+                </h2>
+                <p class="text-xl text-fg/80 leading-relaxed max-w-3xl border-l-4 border-cyan pl-6">
+                    Specializing in high-throughput data ingestion pipelines operating in hostile network environments. <br>
+                    Expertise in <strong>Layer 4 Traffic Analysis</strong>, <strong>TLS Fingerprint Evasion (JA3/JA3S)</strong>, and <strong>Stochastic Behavior Modeling</strong>.
+                </p>
+            </div>
+        </section>
+
+        <!-- ENGINEERING BREAKDOWN -->
+        <section id="engineering" class="py-16 px-6 bg-surface/5 relative z-10 border-y border-comment/20">
+            <div class="max-w-6xl mx-auto">
+                <h2 class="text-3xl font-bold mb-12 text-fg font-mono"><span class="text-pink">>></span> Engineering Post-Mortem: The $500k Pivot</h2>
+                
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-16">
+                    <!-- Left Column: The Problem -->
+                    <div class="space-y-10">
+                        <div class="group">
+                            <h3 class="text-cyan font-mono text-xl mb-3 group-hover:underline decoration-cyan underline-offset-4">01 // The Throughput Architecture (V1)</h3>
+                            <p class="text-sm text-fg/70 leading-relaxed font-mono">
+                                Engineered a distributed request routing mesh utilizing <strong>247 concurrent OAuth tokens</strong> distributed across 1,200+ residential proxy endpoints. Achieved sustained throughput of <strong>2M requests/day</strong> by leveraging non-blocking I/O (AsyncIO) and custom load balancing algorithms to saturate 47 distinct API endpoints, effectively bypassing standard volumetric rate limits.
+                            </p>
+                        </div>
+                        
+                        <div class="group">
+                            <h3 class="text-red font-mono text-xl mb-3 group-hover:underline decoration-red underline-offset-4">02 // The Failure Mode (L4 Detection)</h3>
+                            <p class="text-sm text-fg/70 leading-relaxed font-mono">
+                                The system triggered platform-side heuristic anomaly detection. ML models identified <strong>low-entropy behavioral patterns</strong> and high-frequency temporal clustering across logically disconnected nodes. This confirmed "Coordinated Inauthentic Behavior" at the network layer, resulting in a total infrastructure kill-switch (C&D).
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Right Column: The Solution -->
+                    <div class="space-y-10">
+                         <div class="group">
+                            <h3 class="text-green font-mono text-xl mb-3 group-hover:underline decoration-green underline-offset-4">03 // The Pivot: Signal Processing (V2)</h3>
+                            <p class="text-sm text-fg/70 leading-relaxed font-mono">
+                                Re-architected the stack focusing on <strong>Signal-to-Noise Ratio (SNR)</strong> optimization. Abandoned raw volume (Noise) for client-side NLP pipelines to filter for high-amplitude intent signals. Implemented <strong>stochastic delay injection</strong> modeled on a Gaussian distribution to mimic organic human latency and evade temporal pattern recognition.
+                            </p>
+                        </div>
+
+                        <!-- Terminal Visual -->
+                        <div class="terminal-window p-4 font-mono text-xs overflow-hidden mt-6">
+                            <div class="flex gap-2 mb-4 border-b border-comment/30 pb-2">
+                                <div class="w-3 h-3 rounded-full bg-red"></div>
+                                <div class="w-3 h-3 rounded-full bg-yellow"></div>
+                                <div class="w-3 h-3 rounded-full bg-green"></div>
+                                <span class="ml-2 text-comment">vinay@architect:~/v2_core</span>
+                            </div>
+                            <div class="space-y-1">
+                                <span class="code-line"><span class="line-num">01</span><span class="text-pink">class</span> <span class="text-yellow">EngineV2</span>:</span>
+                                <span class="code-line"><span class="line-num">02</span>    <span class="text-cyan">def</span> <span class="text-green">__init__</span>(self):</span>
+                                <span class="code-line"><span class="line-num">03</span>        self.fingerprint = <span class="text-orange">"JA3_TLS_1.3"</span></span>
+                                <span class="code-line"><span class="line-num">04</span>        <span class="text-comment"># Stochastic delay to evade temporal analysis</span></span>
+                                <span class="code-line"><span class="line-num">05</span>        self.latency = <span class="text-purple">GaussianDist</span>(mean=<span class="text-purple">300ms</span>, sigma=<span class="text-purple">50ms</span>)</span>
+                                <span class="code-line"><span class="line-num">06</span></span>
+                                <span class="code-line"><span class="line-num">07</span>    <span class="text-cyan">async</span> <span class="text-cyan">def</span> <span class="text-green">analyze_intent</span>(self, query):</span>
+                                <span class="code-line"><span class="line-num">08</span>        <span class="text-pink">await</span> self.latency.sleep()</span>
+                                <span class="code-line"><span class="line-num">09</span>        intent_score = self.nlp.semantic_density(query)</span>
+                                <span class="code-line"><span class="line-num">10</span>        <span class="text-pink">return</span> intent_score > <span class="text-purple">0.85</span> <span class="text-comment"># High SNR only</span></span>
+                                <span class="code-line"><span class="line-num">11</span></span>
+                                <span class="code-line"><span class="line-num">12</span><span class="text-green"> > System Status: ISOLATED & COMPLIANT.</span></span>
+                                <span class="code-line"><span class="line-num">13</span><span class="text-green animate-pulse">_</span></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- TECH STACK / ARSENAL -->
+        <section id="stack" class="py-20 px-6 relative z-10">
+            <div class="max-w-5xl mx-auto">
+                <h2 class="text-2xl font-bold mb-10 text-purple font-mono border-b border-purple/30 pb-4">
+                    <span class="text-pink">root@vinay:~$</span> ls -la /technical_arsenal/
+                </h2>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <!-- Card 1 -->
+                    <div class="bg-surface/20 p-6 rounded border border-comment/20 hover:border-cyan/50 transition-colors group">
+                        <h3 class="text-cyan font-mono font-bold mb-4 flex items-center gap-2">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path></svg>
+                            Core Infrastructure
+                        </h3>
+                        <ul class="text-sm text-fg/80 space-y-2 font-mono group-hover:text-white transition-colors">
+                            <li><span class="text-comment">#</span> Node.js / TypeScript (Async Runtime)</li>
+                            <li><span class="text-comment">#</span> Python (Data Analysis & NLP)</li>
+                            <li><span class="text-comment">#</span> Docker (Containerized Isolation)</li>
+                            <li><span class="text-comment">#</span> Redis (Distributed State & Caching)</li>
+                        </ul>
+                    </div>
+
+                    <!-- Card 2 -->
+                    <div class="bg-surface/20 p-6 rounded border border-comment/20 hover:border-green/50 transition-colors group">
+                        <h3 class="text-green font-mono font-bold mb-4 flex items-center gap-2">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path></svg>
+                            Network & Security
+                        </h3>
+                        <ul class="text-sm text-fg/80 space-y-2 font-mono group-hover:text-white transition-colors">
+                            <li><span class="text-comment">#</span> Residential Proxy Mesh Routing</li>
+                            <li><span class="text-comment">#</span> TLS Fingerprint Spoofing (JA3)</li>
+                            <li><span class="text-comment">#</span> OAuth 2.0 / PKCE Implementation</li>
+                            <li><span class="text-comment">#</span> Wireshark (Packet-Level Inspection)</li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Card 3 -->
+                    <div class="bg-surface/20 p-6 rounded border border-comment/20 hover:border-orange/50 transition-colors group">
+                        <h3 class="text-orange font-mono font-bold mb-4 flex items-center gap-2">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                            Electronics Background
+                        </h3>
+                        <ul class="text-sm text-fg/80 space-y-2 font-mono group-hover:text-white transition-colors">
+                            <li><span class="text-comment">#</span> Digital Signal Processing (Applied to Data)</li>
+                            <li><span class="text-comment">#</span> Information Theory (Entropy Reduction)</li>
+                            <li><span class="text-comment">#</span> Embedded Logic & Constraints</li>
+                        </ul>
+                    </div>
+                     
+                     <!-- Card 4 -->
+                     <div class="bg-surface/20 p-6 rounded border border-comment/20 hover:border-pink/50 transition-colors group">
+                        <h3 class="text-pink font-mono font-bold mb-4 flex items-center gap-2">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
+                            Research Focus
+                        </h3>
+                        <ul class="text-sm text-fg/80 space-y-2 font-mono group-hover:text-white transition-colors">
+                            <li><span class="text-comment">#</span> Behavioral Intent Analysis</li>
+                            <li><span class="text-comment">#</span> Compliance-First Architecture</li>
+                            <li><span class="text-comment">#</span> High-Availability SaaS Systems</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- CTA -->
+        <section class="py-24 text-center bg-gradient-to-t from-surface/30 to-bg relative z-10">
+            <div class="max-w-2xl mx-auto px-6">
+                <h2 class="text-3xl md:text-4xl font-bold mb-6 font-mono">Leverage the Architecture</h2>
+                <p class="text-comment mb-10 font-mono text-sm max-w-lg mx-auto">
+                    V2 is the distillation of a $500,000 adversarial engineering lesson. <br>
+                    Secure, network-isolated, and built for high-fidelity signal.
+                </p>
+                <a href="/" class="inline-block px-8 py-4 bg-green text-bg font-bold font-mono rounded hover:bg-white transition-all shadow-[0_0_20px_rgba(80,250,123,0.2)] hover:shadow-[0_0_30px_rgba(80,250,123,0.4)] transform hover:-translate-y-1">
+                    Initialize X Lead Scraper V2
+                </a>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="py-8 text-center border-t border-comment/20 text-xs font-mono text-comment bg-[#1E1F29]">
+        <p>&copy; 2025 Vinay Gond. Systems Architect.</p>
+        <p class="mt-2">
+            <a href="https://vinaygond.github.io/" class="hover:text-cyan transition-colors">GitHub</a> • 
+            <a href="https://linkedin.com/in/vinaygo" class="hover:text-cyan transition-colors">LinkedIn</a> • 
+            <a href="https://xleadscraper.qzz.io/privacy" class="hover:text-cyan transition-colors">Privacy Protocol</a>
+        </p>
+    </footer>
+
+</body>
+</html>
